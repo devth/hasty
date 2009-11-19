@@ -1,1 +1,3 @@
 authlogic
+haml
+chriseppstein-compass --source gems.github.com
