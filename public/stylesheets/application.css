@@ -1,0 +1,63 @@
+/* line 14, ../../app/stylesheets/application.sass */
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif; }
+
+/* line 20, ../../app/stylesheets/application.sass */
+body #site {
+  /* GENERIC STYLES */ }
+  /* line 21, ../../app/stylesheets/application.sass */
+  body #site #nav_bar {
+    background: black;
+    height: 25px;
+    color: #fff;
+    padding: 12px 20px 6px 20px; }
+    /* line 26, ../../app/stylesheets/application.sass */
+    body #site #nav_bar a {
+      color: #fff; }
+    /* line 28, ../../app/stylesheets/application.sass */
+    body #site #nav_bar a:hover {
+      background: #fff;
+      color: black; }
+    /* line 31, ../../app/stylesheets/application.sass */
+    body #site #nav_bar #user_nav {
+      float: right;
+      font-size: .9em; }
+  /* line 35, ../../app/stylesheets/application.sass */
+  body #site #content {
+    width: 800px;
+    margin: auto; }
+    /* line 39, ../../app/stylesheets/application.sass */
+    body #site #content p {
+      font-size: 1.4em;
+      line-height: 1.4em; }
+  /* line 44, ../../app/stylesheets/application.sass */
+  body #site .formList {
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0; }
+    /* line 8, ../../vendor/gems/chriseppstein-compass-0.8.17/frameworks/compass/stylesheets/compass/utilities/lists/_bullets.sass */
+    body #site .formList li {
+      list-style-type: none;
+      margin-left: 0px; }
+    /* line 50, ../../app/stylesheets/application.sass */
+    body #site .formList label {
+      display: block; }
+    /* line 53, ../../app/stylesheets/application.sass */
+    body #site .formList input[type=text], body #site .formList input[type=password] {
+      margin-bottom: 15px;
+      font-size: 1.2em; }
+  /* line 56, ../../app/stylesheets/application.sass */
+  body #site .separator {
+    padding: 0 4px; }
+  /* line 58, ../../app/stylesheets/application.sass */
+  body #site ol, body #site ul {
+    background: #29264d;
+    color: #c9c3e6;
+    padding: 10px 50px; }
+    /* line 62, ../../app/stylesheets/application.sass */
+    body #site ol li, body #site ul li {
+      padding: 0;
+      margin: .8em 0; }

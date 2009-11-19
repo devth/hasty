@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title= "Hasty CMS"
+    = stylesheet_link_tag 'application'
+    = yield :stylesheets
+    = javascript_include_tag :defaults 
+  %body
+  
+    #site
+      
+      #nav_bar
+        
+        = link_to "Home", root_url
+        
+        #user_nav
+          - if current_user
+            = link_to "Profile", edit_user_path(:current)
+            %span.separator
+              |
+            = link_to "Logout", logout_path
+          - else
+            = link_to "Register", register_path
+            %span.separator
+              |
+            = link_to "Login", login_path
+      
+      #content
+        = yield

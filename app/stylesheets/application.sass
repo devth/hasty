@@ -1,0 +1,64 @@
+@import compass/layout.sass
+@import compass/utilities.sass
+@import _globals.sass
+
+!color_pink 				= #feccff
+!color_purple				= #29264d
+!color_light_purple	= #c9c3e6
+!color_dark					= #000
+!color_light_teal		= #ccfeff
+
+!color_nav_bg		= !color_dark
+
+
+html, body
+	:padding 0
+	:margin 0
+	:font-family Helvetica, Arial, sans-serif
+	
+body
+	#site
+		#nav_bar
+			:background = !color_nav_bg
+			:height 25px
+			:color #fff
+			:padding 12px 20px 6px 20px
+			a
+				:color #fff
+			a:hover
+				:background #fff
+				:color = !color_nav_bg
+			#user_nav
+				:float right
+				:font-size .9em
+
+		#content
+			:width 800px
+			:margin auto
+			
+			p
+				:font-size 1.4em
+				:line-height 1.4em
+				
+		/* GENERIC STYLES */
+		.formList
+			:background #fff
+			:color #000
+			+no-bullets
+			:margin 0
+			:padding 0
+			label
+				:display block
+				
+			input[type=text], input[type=password]
+				:margin-bottom 15px
+				:font-size 1.2em
+		.separator
+			:padding 0 4px
+		ol,ul
+			:background = !color_purple
+			:color = !color_light_purple
+			:padding 10px 50px
+			li
+				:padding 0
+				:margin .8em 0
