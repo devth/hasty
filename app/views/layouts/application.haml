@@ -12,10 +12,13 @@
       #nav_bar
         
         = link_to "Home", root_url
+        %span.separator
+          |
+        = link_to "Sites", sites_url
         
         #user_nav
           - if current_user
-            = link_to "Profile", edit_user_path(:current)
+            = link_to "Edit Profile", edit_user_path(:current)
             %span.separator
               |
             = link_to "Logout", logout_path
