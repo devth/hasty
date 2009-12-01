@@ -1,0 +1,19 @@
+%p
+  %b
+    Name:
+  = h @site.name
+%p
+  %b
+    Url:
+  = h @site.url
+%p
+  %b
+    Ftp:
+  = h @site.ftp
+%p
+  %b
+    Path:
+  = h @site.path
+= link_to 'Edit', edit_site_path(@site)
+|
+= link_to 'Back', sites_path

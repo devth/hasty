@@ -1,0 +1,31 @@
+%h1
+  Sites
+%table
+  %tr
+    %th
+      Name
+    %th
+      Url
+    %th
+      Ftp
+    %th
+      Path
+  - @sites.each do |site|
+    %tr
+      %td
+        = h site.name
+      %td
+        = h site.url
+      %td
+        = h site.ftp
+      %td
+        = h site.path
+      %td
+        = link_to 'Show', site
+      %td
+        = link_to 'Edit', edit_site_path(site)
+      %td
+        = link_to 'Destroy', site, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= link_to 'New site', new_site_path
