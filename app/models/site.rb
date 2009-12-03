@@ -1,4 +1,4 @@
 class Site < ActiveRecord::Base
-  belongs_to :ftp
-  
+  has_many :site_servers
+  has_many :servers, :through => :site_servers
 end

@@ -9,13 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091126224123) do
+ActiveRecord::Schema.define(:version => 20091203045550) do
 
-  create_table "ftps", :force => true do |t|
-    t.string   "host"
+  create_table "servers", :force => true do |t|
+    t.string   "url"
     t.string   "username"
     t.string   "crypted_password"
-    t.string   "password_salt"
+    t.integer  "port"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "site_servers", :force => true do |t|
+    t.integer  "site_id"
+    t.integer  "server_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20091126224123) do
   create_table "sites", :force => true do |t|
     t.string   "name"
     t.string   "url"
-    t.integer  "ftp_id"
     t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
