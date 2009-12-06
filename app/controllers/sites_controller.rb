@@ -25,6 +25,7 @@ class SitesController < ApplicationController
   # GET /sites/new.xml
   def new
     @site = Site.new
+    @servers = Server.all
 
     respond_to do |format|
       format.html # new.html.erb

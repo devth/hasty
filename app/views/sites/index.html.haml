@@ -7,7 +7,7 @@
     %th
       Url
     %th
-      Ftp
+      Server
     %th
       Path
   - @sites.each do |site|
@@ -17,7 +17,7 @@
       %td
         = h site.url
       %td
-        = h site.ftp
+        -#= h site.server
       %td
         = h site.path
       %td

@@ -11,6 +11,15 @@
 
 ActiveRecord::Schema.define(:version => 20091203045550) do
 
+  create_table "ftps", :force => true do |t|
+    t.string   "host"
+    t.string   "username"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "servers", :force => true do |t|
     t.string   "url"
     t.string   "username"
@@ -31,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20091203045550) do
     t.string   "name"
     t.string   "url"
     t.string   "path"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
