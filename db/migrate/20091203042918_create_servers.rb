@@ -5,6 +5,7 @@ class CreateServers < ActiveRecord::Migration
       t.string :username
       t.string :crypted_password
       t.integer :port
+      t.references :user
 
       t.timestamps
     end
