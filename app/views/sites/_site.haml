@@ -13,6 +13,6 @@
       - form.fields_for :site_servers do |server_form|
         = server_form.label :server_id, "Server"
         = server_form.collection_select :server_id, @servers, :id, :name, {:include_blank => true}
-
+        
     %li
       = form.submit "Submit"
