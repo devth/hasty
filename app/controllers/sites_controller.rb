@@ -1,8 +1,9 @@
 class SitesController < ApplicationController
-  # GET /sites
-  # GET /sites.xml
+  before_filter :require_user #, :only => [:show, :edit, :update]
+
+
   def index
-    @sites = Site.all
+    @sites = current_user.sites
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.xml
   def show
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,9 +25,13 @@ class SitesController < ApplicationController
   # GET /sites/new
   # GET /sites/new.xml
   def new
-    @site = Site.new
-    @servers = Server.all
-
+    @user = current_user
+    @site = @user.sites.build
+    @servers = @user.servers.all
+    
+    # let there be one server
+    @site.site_servers.build
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @site }
@@ -35,13 +40,17 @@ class SitesController < ApplicationController
 
   # GET /sites/1/edit
   def edit
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
+    @servers = current_user.servers.all
   end
 
   # POST /sites
   # POST /sites.xml
   def create
-    @site = Site.new(params[:site])
+    @site = current_user.sites.build(params[:site])
+    # if params[:server]
+    #       @site.site_servers.build( :server_id => params[:server][:server_id])
+    #     end
 
     respond_to do |format|
       if @site.save
@@ -58,7 +67,7 @@ class SitesController < ApplicationController
   # PUT /sites/1
   # PUT /sites/1.xml
   def update
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
 
     respond_to do |format|
       if @site.update_attributes(params[:site])
@@ -75,7 +84,7 @@ class SitesController < ApplicationController
   # DELETE /sites/1
   # DELETE /sites/1.xml
   def destroy
-    @site = Site.find(params[:id])
+    @site = current_user.sites.find(params[:id])
     @site.destroy
 
     respond_to do |format|

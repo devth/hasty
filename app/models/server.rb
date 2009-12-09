@@ -5,4 +5,13 @@ class Server < ActiveRecord::Base
   
   has_many :site_servers
   has_many :sites, :through => :site_servers
+  
+  def name
+    username + "@" + url
+  end
+  
+  def to_s
+    name
+  end
+  
 end

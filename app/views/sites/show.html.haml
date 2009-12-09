@@ -8,8 +8,9 @@
   = h @site.url
 %p
   %b
-    Path:
-  = h @site.path
+    Server:
+  = h @site.servers.first
+  
 = link_to 'Edit', edit_site_path(@site)
 |
 = link_to 'Back', sites_path

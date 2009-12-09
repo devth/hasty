@@ -46,18 +46,18 @@ body #site {
     body #site .formList label {
       display: block; }
     /* line 54, ../../app/stylesheets/application.sass */
-    body #site .formList input[type=text], body #site .formList input[type=password] {
+    body #site .formList input[type=text], body #site .formList input[type=password], body #site .formList select {
       margin-bottom: 15px;
       font-size: 1.2em; }
-  /* line 57, ../../app/stylesheets/application.sass */
+  /* line 58, ../../app/stylesheets/application.sass */
   body #site .separator {
     padding: 0 4px; }
-  /* line 59, ../../app/stylesheets/application.sass */
+  /* line 60, ../../app/stylesheets/application.sass */
   body #site ol, body #site ul {
     background: #29264d;
     color: #c9c3e6;
     padding: 10px 50px; }
-    /* line 63, ../../app/stylesheets/application.sass */
+    /* line 64, ../../app/stylesheets/application.sass */
     body #site ol li, body #site ul li {
       padding: 0;
       margin: .8em 0; }
