@@ -1,18 +1,24 @@
-- form_for @site do |form|
-  = form.error_messages
-  %ol.formList
-    %li
-      = form.label :name
-      = form.text_field :name
-    %li
-      = form.label :url, "URL"
-      = form.text_field :url
-    %li
-      -# for ss in @site.site_servers
-      
-      - form.fields_for :site_servers do |server_form|
-        = server_form.label :server_id, "Server"
-        = server_form.collection_select :server_id, @servers, :id, :name, {:include_blank => true}
+.site_form
+  - form_for @site do |form|
+    = form.error_messages
+    %ol.formList
+      %li
+        = form.label :name
+        = form.text_field :name
+      %li
+        = form.label :url, "URL"
+        = form.text_field :url
+      %li
+        - form.fields_for :site_servers do |server_form|
+          = server_form.label :server_id, "Server"
+          = server_form.collection_select :server_id, @servers, :id, :name, {:include_blank => true}
+          %span.add_link
+            = link_to_function "Add Server", "$(this).closest('.site_form').find('.add_server').show(); $(this).parent('.add_link').hide()"
+       
+          .add_server{ :style => "display:none" }
+            %h3
+              New Server
+            = link_to_function "Cancel", "$(this).closest('.add_server').hide(); $(this).closest('.site_form').find('.add_link').show()"
         
-    %li
-      = form.submit "Submit"
+      %li
+        = form.submit "Submit"
