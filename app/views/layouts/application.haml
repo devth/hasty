@@ -18,7 +18,7 @@
         
         #user_nav
           - if current_user
-            = link_to "Edit Profile", edit_user_path(:current)
+            = link_to current_user.username, edit_user_path(:current)
             %span.separator
               |
             = link_to "Logout", logout_path
