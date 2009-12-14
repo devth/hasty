@@ -1,40 +1,55 @@
-/* line 14, ../../app/stylesheets/application.sass */
+/* line 15, ../../app/stylesheets/application.sass */
 html, body {
   padding: 0;
   margin: 0;
   font-family: Helvetica, Arial, sans-serif; }
 
-/* line 20, ../../app/stylesheets/application.sass */
+/* line 21, ../../app/stylesheets/application.sass */
 body #site {
   /* GENERIC STYLES */ }
-  /* line 21, ../../app/stylesheets/application.sass */
+  /* line 22, ../../app/stylesheets/application.sass */
   body #site #nav_bar {
     background: black;
     height: 25px;
     color: #fff;
     padding: 12px 20px 6px 20px;
     font-size: .9em; }
-    /* line 27, ../../app/stylesheets/application.sass */
+    /* line 28, ../../app/stylesheets/application.sass */
     body #site #nav_bar a {
       color: #fff; }
-    /* line 29, ../../app/stylesheets/application.sass */
+    /* line 30, ../../app/stylesheets/application.sass */
     body #site #nav_bar a:hover {
       background: #fff;
       color: black; }
-    /* line 32, ../../app/stylesheets/application.sass */
+    /* line 33, ../../app/stylesheets/application.sass */
     body #site #nav_bar #user_nav {
       float: right; }
-  /* line 36, ../../app/stylesheets/application.sass */
+  /* line 37, ../../app/stylesheets/application.sass */
   body #site #content {
     width: 800px;
     margin: auto; }
-    /* line 40, ../../app/stylesheets/application.sass */
+    /* line 41, ../../app/stylesheets/application.sass */
+    body #site #content #alerts {
+      margin: 10px 0; }
+      /* line 43, ../../app/stylesheets/application.sass */
+      body #site #content #alerts div {
+        padding: 6px;
+        margin: 4px 0; }
+      /* line 46, ../../app/stylesheets/application.sass */
+      body #site #content #alerts .notice {
+        background: #A4E7A0;
+        border: 1px solid #26722D; }
+      /* line 49, ../../app/stylesheets/application.sass */
+      body #site #content #alerts .error {
+        background: #F0A8A8;
+        border: 1px solid #900; }
+    /* line 53, ../../app/stylesheets/application.sass */
     body #site #content p {
       font-size: 1.4em;
       line-height: 1.4em; }
-  /* line 45, ../../app/stylesheets/application.sass */
+  /* line 58, ../../app/stylesheets/application.sass */
   body #site .formList {
-    background: #fff;
+    background: inherit;
     color: #000;
     margin: 0;
     padding: 0; }
@@ -42,22 +57,26 @@ body #site {
     body #site .formList li {
       list-style-type: none;
       margin-left: 0px; }
-    /* line 51, ../../app/stylesheets/application.sass */
+    /* line 64, ../../app/stylesheets/application.sass */
     body #site .formList label {
       display: block; }
-    /* line 54, ../../app/stylesheets/application.sass */
+    /* line 67, ../../app/stylesheets/application.sass */
     body #site .formList input[type=text], body #site .formList input[type=password], body #site .formList select {
       margin-bottom: 15px;
       font-size: 1.2em; }
-  /* line 58, ../../app/stylesheets/application.sass */
+  /* line 71, ../../app/stylesheets/application.sass */
   body #site .separator {
     padding: 0 4px; }
-  /* line 60, ../../app/stylesheets/application.sass */
+  /* line 73, ../../app/stylesheets/application.sass */
+  body #site .box {
+    background: #eeeeee;
+    padding: 15px; }
+  /* line 76, ../../app/stylesheets/application.sass */
   body #site ol, body #site ul {
     background: #29264d;
     color: #c9c3e6;
     padding: 10px 50px; }
-    /* line 64, ../../app/stylesheets/application.sass */
+    /* line 80, ../../app/stylesheets/application.sass */
     body #site ol li, body #site ul li {
       padding: 0;
       margin: .8em 0; }

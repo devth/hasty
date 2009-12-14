@@ -7,6 +7,7 @@
 !color_light_purple	= #c9c3e6
 !color_dark					= #000
 !color_light_teal		= #ccfeff
+!color_light_grey		= #eee
 
 !color_nav_bg		= !color_dark
 
@@ -37,13 +38,25 @@ body
 			:width 800px
 			:margin auto
 			
+			#alerts
+				:margin 10px 0
+				div
+					:padding 6px
+					:margin 4px 0
+				.notice
+					:background #A4E7A0
+					:border 1px solid #26722D
+				.error
+					:background #F0A8A8
+					:border 1px solid #900
+			
 			p
 				:font-size 1.4em
 				:line-height 1.4em
 				
 		/* GENERIC STYLES */
 		.formList
-			:background #fff
+			:background inherit
 			:color #000
 			+no-bullets
 			:margin 0
@@ -57,6 +70,9 @@ body
 				
 		.separator
 			:padding 0 4px
+		.box
+			:background = !color_light_grey
+			:padding 15px
 		ol,ul
 			:background = !color_purple
 			:color = !color_light_purple
