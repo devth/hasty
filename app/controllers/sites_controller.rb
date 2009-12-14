@@ -11,8 +11,6 @@ class SitesController < ApplicationController
     end
   end
 
-  # GET /sites/1
-  # GET /sites/1.xml
   def show
     @site = current_user.sites.find(params[:id])
 
@@ -22,8 +20,6 @@ class SitesController < ApplicationController
     end
   end
 
-  # GET /sites/new
-  # GET /sites/new.xml
   def new
     @user = current_user
     @site = @user.sites.build
@@ -32,8 +28,8 @@ class SitesController < ApplicationController
     # let there be one server linked
     @site.site_servers.build
     
-    # @user.servers.build if @user.servers.empty?
-    @site.servers.build if @site.servers.empty? #( :user_id => current_user.id ) 
+    # build empty server in case they want to add a new one
+    @site.servers.build if @site.servers.empty?
     
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +37,6 @@ class SitesController < ApplicationController
     end
   end
 
-  # GET /sites/1/edit
   def edit
     @site = current_user.sites.find(params[:id])
     @servers = current_user.servers.all
@@ -51,14 +46,13 @@ class SitesController < ApplicationController
     
   end
 
-  # POST /sites
-  # POST /sites.xml
   def create
     @site = current_user.sites.build(params[:site])
-    # if params[:server]
-    #       @site.site_servers.build( :server_id => params[:server][:server_id])
-    #     end
-
+    # populate user id manually so it can't be hijacked in the form
+    @site.servers.each do |server|
+      server.user_id = current_user.id
+    end
+    
     respond_to do |format|
       if @site.save
         flash[:notice] = 'Site was successfully created.'
@@ -71,8 +65,6 @@ class SitesController < ApplicationController
     end
   end
 
-  # PUT /sites/1
-  # PUT /sites/1.xml
   def update
     @site = current_user.sites.find(params[:id])
 
@@ -88,8 +80,6 @@ class SitesController < ApplicationController
     end
   end
 
-  # DELETE /sites/1
-  # DELETE /sites/1.xml
   def destroy
     @site = current_user.sites.find(params[:id])
     @site.destroy
