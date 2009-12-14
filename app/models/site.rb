@@ -6,7 +6,9 @@ class Site < ActiveRecord::Base
   has_many :servers, :through => :site_servers
   
   accepts_nested_attributes_for :site_servers, :allow_destroy => true
+  accepts_nested_attributes_for :servers, :allow_destroy => true
   
+  validates_presence_of :name, :on => :create, :message => "Name is required"
   
   # def server_id
   #   servers[0].id if servers[0]

@@ -29,8 +29,11 @@ class SitesController < ApplicationController
     @site = @user.sites.build
     @servers = @user.servers.all
     
-    # let there be one server
+    # let there be one server linked
     @site.site_servers.build
+    
+    # @user.servers.build if @user.servers.empty?
+    @site.servers.build if @site.servers.empty? #( :user_id => current_user.id ) 
     
     respond_to do |format|
       format.html # new.html.erb
@@ -42,6 +45,10 @@ class SitesController < ApplicationController
   def edit
     @site = current_user.sites.find(params[:id])
     @servers = current_user.servers.all
+    
+    # let there be one server linked
+    @site.site_servers.build if @site.site_servers.empty?
+    
   end
 
   # POST /sites

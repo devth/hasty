@@ -9,16 +9,30 @@
         = form.label :url, "URL"
         = form.text_field :url
       %li
-        - form.fields_for :site_servers do |server_form|
-          = server_form.label :server_id, "Server"
-          = server_form.collection_select :server_id, @servers, :id, :name, {:include_blank => true}
-          %span.add_link
-            = link_to_function "Add Server", "$(this).closest('.site_form').find('.add_server').show(); $(this).parent('.add_link').hide()"
-       
-          .add_server{ :style => "display:none" }
-            %h3
-              New Server
-            = link_to_function "Cancel", "$(this).closest('.add_server').hide(); $(this).closest('.site_form').find('.add_link').show()"
+        - form.fields_for :site_servers do |ss_form|
+          %span.choose_server
+            = ss_form.label :server_id, "Server"
+            = ss_form.collection_select :server_id, @servers, :id, :name, {:include_blank => true}
+            = link_to_function "New Server", "$(this).closest('.site_form').find('.add_server').show(); $(this).parent('.choose_server').hide()"
+                 
+          .add_server.box{ :style => "display:none" }
+            - form.fields_for :servers do |server_form|
+              Add Server
+              = link_to_function "Cancel", "$(this).closest('.add_server').hide(); $(this).closest('.site_form').find('.choose_server').show()"
+              %ol.formList
+                %li
+                  = server_form.label :url, "URL"
+                  = server_form.text_field :url
+                %li
+                  = server_form.label :username, "Username"
+                  = server_form.text_field :username
+                %li
+                  = server_form.label :password, "Password"
+                  = server_form.password_field :password
+                %li
+                  = server_form.label :port, "Port"
+                  = server_form.text_field :port
+              
         
       %li
         = form.submit "Submit"
