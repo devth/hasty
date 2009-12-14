@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   has_many :servers
   
   has_many :site_servers, :through => :sites
+  
+  
 end
