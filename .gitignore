@@ -2,4 +2,5 @@
 
 log/*.log
 tmp/**/*
+tmp/*
 db/development.sqlite3

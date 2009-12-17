@@ -9,6 +9,9 @@
         = form.label :url, "URL"
         = form.text_field :url
       %li
+        = form.label :path, "Path (on server)"
+        = form.text_field :path
+      %li
         - form.fields_for :site_servers do |ss_form|
           %span.choose_server
             = ss_form.label :server_id, "Server"

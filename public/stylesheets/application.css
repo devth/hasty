@@ -74,20 +74,21 @@ body #site {
     /* line 67, ../../app/stylesheets/application.sass */
     body #site .formList input[type=text], body #site .formList input[type=password], body #site .formList select {
       margin-bottom: 15px;
+      margin-top: 2px !important;
       font-size: 1.2em; }
-  /* line 71, ../../app/stylesheets/application.sass */
+  /* line 72, ../../app/stylesheets/application.sass */
   body #site .separator {
     padding: 0 4px; }
-  /* line 73, ../../app/stylesheets/application.sass */
+  /* line 74, ../../app/stylesheets/application.sass */
   body #site .box {
     background: #eeeeee;
     padding: 15px; }
-  /* line 76, ../../app/stylesheets/application.sass */
+  /* line 77, ../../app/stylesheets/application.sass */
   body #site ol, body #site ul {
     background: #29264d;
     color: #c9c3e6;
     padding: 10px 50px; }
-    /* line 80, ../../app/stylesheets/application.sass */
+    /* line 81, ../../app/stylesheets/application.sass */
     body #site ol li, body #site ul li {
       padding: 0;
       margin: .8em 0; }

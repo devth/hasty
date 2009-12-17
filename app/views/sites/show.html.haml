@@ -1,16 +1,39 @@
-%p
-  %b
-    Name:
-  = h @site.name
-%p
-  %b
-    Url:
-  = h @site.url
-%p
-  %b
-    Server:
-  = h @site.servers.first
-  
-= link_to 'Edit', edit_site_path(@site)
-|
-= link_to 'Back', sites_path
+- content_for :stylesheets do
+  = stylesheet_link_tag 'views/sites/show'
+
+.sites-show
+  %p
+    %b
+      Name:
+    = h @site.name
+  %p
+    %b
+      Url:
+    = h @site.url
+  %p
+    %b
+      Server:
+    = h @site.servers.first
+
+  = link_to 'Edit', edit_site_path(@site)
+  |
+  = link_to 'Back', sites_path
+
+
+  .files
+    Files in: 
+    = @site.path
+
+    - @files.each do |file|
+      .file
+        = file.split(' ').last
+    
+  - form_for :site, :url => { :action => 'post' } do |f|
+    - @hastys.each do |hasty|
+      .hastyElement
+        - if hasty.name == 'h1' || hasty.name == 'h2'
+          = text_field_tag "hasty[]", hasty.content.strip.rstrip
+        - else 
+          = text_area_tag "hasty[]", hasty.content.strip.rstrip
+          
+    = submit_tag "Submit"

@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :sites
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   map.register 'register', :controller => 'users', :action => 'new'
   map.login 'login', :controller => 'user_sessions', :action => 'new'
@@ -8,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :user_sessions
   map.resources :users
-  map.resources :sites
+  map.resources :sites, :member => { :post => :post }
   
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
