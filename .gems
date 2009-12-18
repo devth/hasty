@@ -1,3 +1,5 @@
 authlogic
 haml
 chriseppstein-compass --source gems.github.com
+shuber-attr_encrypted --source gems.github.com
+nokogiri
