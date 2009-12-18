@@ -25,7 +25,7 @@ class SitesController < ApplicationController
     if File.exists?( file_path )
       
       doc = Nokogiri::HTML(File.open(file_path))
-      hastys = doc.css('.hasty')
+      hastys = doc.css('.editable')
       
       hastys_params = params[:hasty]
       hastys_params.each_index do |index|
@@ -60,21 +60,16 @@ class SitesController < ApplicationController
     end
     
     
- 
-    
     external_site = @site.url
     external_site = "http://" + external_site unless external_site.index("http://") == 0
     flash[:notice] = "Site posted! <a href='" + external_site + "'>View your site</a>"
     redirect_to(@site)
     
     
-    
-    
   end
 
   def show
     @site = current_user.sites.find(params[:id])
-
     
     # connect to ftp
     @files = []
@@ -85,7 +80,7 @@ class SitesController < ApplicationController
       
         file_path = Rails.root.join('tmp/index.html')
         
-        unless File.exists?( file_path )
+        #unless File.exists?( file_path )
           Net::FTP.open(@server.url) do |ftp|
             ftp.login( @server.username, @server.password )
             ftp.passive = true
@@ -96,12 +91,12 @@ class SitesController < ApplicationController
             # index_file = Tempfile.new("index.html", Rails.root.join('tmp'))
             ftp.gettextfile('index.html', file_path)
           end
-        end
+        #end
         
         if File.exists?( file_path )
           
           doc = Nokogiri::HTML(File.open(file_path))
-          @hastys = doc.css('.hasty')
+          @hastys = doc.css('.editable')
           
         end
       end
