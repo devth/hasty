@@ -1,6 +1,6 @@
 class CreateSites < ActiveRecord::Migration
   def self.up
-    create_table :sites do |t|
+    create_table :sites, {:force => true} do |t|
       t.string :name
       t.string :url
       t.string :path

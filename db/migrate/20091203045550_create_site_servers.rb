@@ -1,6 +1,6 @@
 class CreateSiteServers < ActiveRecord::Migration
   def self.up
-    create_table :site_servers do |t|
+    create_table :site_servers, {:force => true} do |t|
       t.references :site
       t.references :server
 

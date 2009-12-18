@@ -1,6 +1,6 @@
 class CreateServers < ActiveRecord::Migration
   def self.up
-    create_table :servers do |t|
+    create_table :servers, {:force => true} do |t|
       t.string :url
       t.string :username
       t.string :crypted_password
