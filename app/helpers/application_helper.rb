@@ -3,7 +3,7 @@ module ApplicationHelper
 
   # form helper
   def set_form_focus
-    javascript_tag("$(document).ready( function() { $('form:first input:first').focus(); });")
+    javascript_tag("$(\"input[type='text']:first\", document.forms[0]).focus();")
   end
   
 end
